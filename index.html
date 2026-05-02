@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Q-Learning</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="game-area" aria-label="Snake game">
+      <div class="topbar">
+        <div>
+          <p class="label">Mode</p>
+          <h1 id="modeLabel">Choose a mode</h1>
+        </div>
+        <div class="stats">
+          <span>Score <strong id="score">0</strong></span>
+          <span>Best <strong id="bestScore">0</strong></span>
+          <span>Episode <strong id="episode">0</strong></span>
+        </div>
+      </div>
+
+      <canvas id="board" width="640" height="480" aria-label="Snake board"></canvas>
+
+      <div id="message" class="message">
+        Select Human Mode or AI Mode to start.
+      </div>
+    </section>
+
+    <aside class="controls" aria-label="Game controls">
+      <div class="control-group">
+        <button id="humanBtn" class="primary">Human Mode</button>
+        <button id="aiBtn">AI Mode</button>
+        <button id="restartBtn">Restart</button>
+      </div>
+
+      <div class="control-group">
+        <label for="speedRange">Speed</label>
+        <input id="speedRange" type="range" min="4" max="35" value="12">
+        <span id="speedText">12 FPS</span>
+      </div>
+
+      <div class="control-group">
+        <label>Human Controls</label>
+        <div class="pad">
+          <button id="upBtn" aria-label="Move up">&uarr;</button>
+          <button id="leftBtn" aria-label="Move left">&larr;</button>
+          <button id="downBtn" aria-label="Move down">&darr;</button>
+          <button id="rightBtn" aria-label="Move right">&rarr;</button>
+        </div>
+      </div>
+
+      <div class="control-group ai-panel">
+        <div class="line">
+          <span>Epsilon</span>
+          <strong id="epsilon">1.000</strong>
+        </div>
+        <div class="line">
+          <span>Q states</span>
+          <strong id="states">0</strong>
+        </div>
+        <button id="saveBtn">Save Q-table</button>
+        <button id="clearBtn">Clear Q-table</button>
+      </div>
+
+      <div id="log" class="log" aria-live="polite"></div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
